@@ -1,0 +1,19 @@
+{
+  "problems": [
+    {
+      "title": "Problem 1: Simple Addition",
+      "content": "What is 2 + 2?",
+      "answer": "4"
+    },
+    {
+      "title": "Problem 2: Basic Multiplication",
+      "content": "What is 3 * 3?",
+      "answer": "9"
+    },
+    {
+      "title": "Problem 3: Subtraction",
+      "content": "What is 10 - 4?",
+      "answer": "6"
+    }
+  ]
+}
