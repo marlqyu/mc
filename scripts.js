@@ -1,20 +1,10 @@
 // Function to update the content
 function updateContent(data) {
-    // Update Google Classroom Code
     const classroomCodeElement = document.querySelector('.small-block p');
     if (classroomCodeElement) {
         classroomCodeElement.textContent = data.googleClassroomCode;
     }
 }
-
-// Fetch the JSON data and call updateContent
-fetch('content.json')
-    .then(response => response.json())
-    .then(data => {
-        updateContent(data);
-        updateLessonsContent(data);
-    })
-    .catch(error => console.error('Error fetching content:', error));
 
 // Function to update the lessons content
 function updateLessonsContent(data) {
@@ -22,7 +12,6 @@ function updateLessonsContent(data) {
     const lessonDetails = document.getElementById('lesson-details');
 
     if (lessonsList && lessonDetails) {
-        // Clear the existing lessons list
         lessonsList.innerHTML = '';
 
         data.lessons.forEach(lesson => {
@@ -40,21 +29,16 @@ function updateLessonsContent(data) {
     }
 }
 
-// Fetch the JSON data and call updateLessonsContent
-fetch('content.json')
-    .then(response => response.json())
-    .then(data => updateLessonsContent(data))
-    .catch(error => console.error('Error fetching lessons content:', error));
-
 // Function to update the problems content
 function updateProblemsContent(data) {
     const problemsList = document.getElementById('problems-list');
     const problemDetails = document.getElementById('problem-details');
     const problemContent = document.getElementById('problem-content');
-    const submitButton = document.getElementById('submit-answer');
     let currentProblem = null;
 
-    if (problemsList && problemDetails && problemContent && submitButton) {
+    if (problemsList && problemDetails && problemContent) {
+        problemsList.innerHTML = '';
+
         data.problems.forEach(problem => {
             const problemItem = document.createElement('li');
             const problemLink = document.createElement('a');
@@ -64,34 +48,48 @@ function updateProblemsContent(data) {
                 currentProblem = problem;
                 problemDetails.innerHTML = `<h3>${problem.title}</h3><p>${problem.content}</p>`;
                 problemContent.innerHTML = '';
-                MathJax.typeset(); // Re-render MathJax
+                MathJax.typeset();
             });
 
             problemItem.appendChild(problemLink);
             problemsList.appendChild(problemItem);
         });
+    }
+}
 
-        // Create a div for feedback message
-        const feedbackDiv = document.createElement('div');
-        feedbackDiv.id = 'feedback-message';
-        submitButton.parentNode.appendChild(feedbackDiv);
+// Function to update the resources content
+function updateResourcesContent(data) {
+    const resourcesList = document.getElementById('resources-list');
 
-        submitButton.addEventListener('click', () => {
-            const userAnswer = document.getElementById('problem-answer').value;
-            if (currentProblem) {
-                if (userAnswer === currentProblem.answer) {
-                    feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Correct!</p>`;
-                } else {
-                    feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Incorrect. Try again.</p>`;
-                }
-                MathJax.typeset(); // Re-render MathJax
-            }
+    if (resourcesList) {
+        resourcesList.innerHTML = '';
+
+        data.resources.forEach(resource => {
+            const resourceItem = document.createElement('li');
+            resourceItem.className = 'resource-block'; // Add the CSS class
+
+            const resourceLink = document.createElement('a');
+            resourceLink.href = resource.link;
+            resourceLink.textContent = resource.title;
+            resourceLink.target = '_blank';
+
+            const resourceDescription = document.createElement('p');
+            resourceDescription.textContent = resource.description;
+
+            resourceItem.appendChild(resourceLink);
+            resourceItem.appendChild(resourceDescription);
+            resourcesList.appendChild(resourceItem);
         });
     }
 }
 
-// Fetch the JSON data and call updateProblemsContent
-fetch('problems.json')
+// Fetch the JSON data and call updateContent, updateLessonsContent, updateProblemsContent, and updateResourcesContent
+fetch('content.json')
     .then(response => response.json())
-    .then(data => updateProblemsContent(data))
-    .catch(error => console.error('Error fetching problems content:', error));
+    .then(data => {
+        updateContent(data);
+        updateLessonsContent(data);
+        updateProblemsContent(data);
+        updateResourcesContent(data);
+    })
+    .catch(error => console.error('Error fetching content:', error));

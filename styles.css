@@ -360,3 +360,21 @@ body {
         margin: 0 1em;
     }
 }
+/* Add styles for the resource blocks */
+/* Add styles for the resource blocks */
+.resource-block {
+    background-color: #e0e7ef; /* Match the color of other blocks */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.resource-block a {
+    color: black; /* Match the link color of other blocks */
+    text-decoration: none;
+}
+
+.resource-block a:hover {
+    text-decoration: underline;
+}

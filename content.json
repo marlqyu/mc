@@ -13,5 +13,34 @@
       "title": "Lesson 3: Trigonometry",
       "content": "This lesson explores the principles of trigonometry, including sine, cosine, and tangent functions."
     }
+  ],
+  "problems": [
+    {
+      "title": "Problem 1: Solve for x",
+      "content": "Solve the equation: 2x + 3 = 7",
+      "answer": "2"
+    },
+    {
+      "title": "Problem 2: Pythagorean Theorem",
+      "content": "Find the length of the hypotenuse of a right triangle with legs of length 3 and 4.",
+      "answer": "5"
+    },
+    {
+      "title": "Test",
+      "content": "dota 2 is a good game",
+      "answer": "zxczov"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Khan Academy",
+      "link": "https://www.khanacademy.org",
+      "description": "Free online courses, lessons, and practice."
+    },
+    {
+      "title": "Coursera",
+      "link": "https://www.coursera.org",
+      "description": "Online courses from top universities and companies."
+    }
   ]
 }
