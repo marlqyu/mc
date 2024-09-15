@@ -2,7 +2,9 @@
 function updateContent(data) {
     // Update Google Classroom Code
     const classroomCodeElement = document.querySelector('.small-block p');
-    classroomCodeElement.textContent = data.googleClassroomCode;
+    if (classroomCodeElement) {
+        classroomCodeElement.textContent = data.googleClassroomCode;
+    }
 }
 
 // Fetch the JSON data and call updateContent
@@ -19,18 +21,23 @@ function updateLessonsContent(data) {
     const lessonsList = document.getElementById('lessons-list');
     const lessonDetails = document.getElementById('lesson-details');
 
-    data.lessons.forEach(lesson => {
-        const lessonItem = document.createElement('li');
-        const lessonLink = document.createElement('a');
-        lessonLink.href = '#';
-        lessonLink.textContent = lesson.title;
-        lessonLink.addEventListener('click', () => {
-            lessonDetails.innerHTML = `<h3>${lesson.title}</h3><p>${lesson.content}</p>`;
-        });
+    if (lessonsList && lessonDetails) {
+        // Clear the existing lessons list
+        lessonsList.innerHTML = '';
 
-        lessonItem.appendChild(lessonLink);
-        lessonsList.appendChild(lessonItem);
-    });
+        data.lessons.forEach(lesson => {
+            const lessonItem = document.createElement('li');
+            const lessonLink = document.createElement('a');
+            lessonLink.href = '#';
+            lessonLink.textContent = lesson.title;
+            lessonLink.addEventListener('click', () => {
+                lessonDetails.innerHTML = `<h3>${lesson.title}</h3><p>${lesson.content}</p>`;
+            });
+
+            lessonItem.appendChild(lessonLink);
+            lessonsList.appendChild(lessonItem);
+        });
+    }
 }
 
 // Fetch the JSON data and call updateLessonsContent
@@ -38,8 +45,6 @@ fetch('content.json')
     .then(response => response.json())
     .then(data => updateLessonsContent(data))
     .catch(error => console.error('Error fetching lessons content:', error));
-
-
 
 // Function to update the problems content
 function updateProblemsContent(data) {
@@ -49,36 +54,40 @@ function updateProblemsContent(data) {
     const submitButton = document.getElementById('submit-answer');
     let currentProblem = null;
 
-    data.problems.forEach(problem => {
-        const problemItem = document.createElement('li');
-        const problemLink = document.createElement('a');
-        problemLink.href = '#';
-        problemLink.textContent = problem.title;
-        problemLink.addEventListener('click', () => {
-            currentProblem = problem;
-            problemDetails.innerHTML = `<h3>${problem.title}</h3><p>${problem.content}</p>`;
-            problemContent.innerHTML = '';
+    if (problemsList && problemDetails && problemContent && submitButton) {
+        data.problems.forEach(problem => {
+            const problemItem = document.createElement('li');
+            const problemLink = document.createElement('a');
+            problemLink.href = '#';
+            problemLink.textContent = problem.title;
+            problemLink.addEventListener('click', () => {
+                currentProblem = problem;
+                problemDetails.innerHTML = `<h3>${problem.title}</h3><p>${problem.content}</p>`;
+                problemContent.innerHTML = '';
+                MathJax.typeset(); // Re-render MathJax
+            });
+
+            problemItem.appendChild(problemLink);
+            problemsList.appendChild(problemItem);
         });
 
-        problemItem.appendChild(problemLink);
-        problemsList.appendChild(problemItem);
-    });
+        // Create a div for feedback message
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.id = 'feedback-message';
+        submitButton.parentNode.appendChild(feedbackDiv);
 
-    // Create a div for feedback message
-    const feedbackDiv = document.createElement('div');
-    feedbackDiv.id = 'feedback-message';
-    submitButton.parentNode.appendChild(feedbackDiv);
-
-    submitButton.addEventListener('click', () => {
-        const userAnswer = document.getElementById('problem-answer').value;
-        if (currentProblem) {
-            if (userAnswer === currentProblem.answer) {
-                feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Correct!</p>`;
-            } else {
-                feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Incorrect. Try again.</p>`;
+        submitButton.addEventListener('click', () => {
+            const userAnswer = document.getElementById('problem-answer').value;
+            if (currentProblem) {
+                if (userAnswer === currentProblem.answer) {
+                    feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Correct!</p>`;
+                } else {
+                    feedbackDiv.innerHTML = `<p>Your answer: ${userAnswer}</p><p>Incorrect. Try again.</p>`;
+                }
+                MathJax.typeset(); // Re-render MathJax
             }
-        }
-    });
+        });
+    }
 }
 
 // Fetch the JSON data and call updateProblemsContent

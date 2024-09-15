@@ -14,6 +14,11 @@
       "title": "Problem 3: Subtraction",
       "content": "What is 10 - 4?",
       "answer": "6"
+    },
+    {
+      "title": "Problem 4: Quadratic Formula",
+      "content": "Solve the quadratic equation: \\( ax^2 + bx + c = 0 \\). The solution is given by the formula: \\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]",
+      "answer": "Quadratic formula"
     }
   ]
 }
