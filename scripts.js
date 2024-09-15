@@ -51,3 +51,15 @@ function openModal(modalId) {
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
+fetch('data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        lessonDetails = data.lessons;
+        problemDetails = data.problems;
+    })
+    .catch(error => console.error('Error fetching data:', error));
