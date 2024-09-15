@@ -222,3 +222,10 @@ h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list
 .lessons-list, .problems-list, .lesson-details, .problem-details {
     background-color: transparent; /* Remove background color */
 }
+/* Add this to your styles.css */
+.highlight-block {
+    background-color: #f0f8ff; /* Example color, adjust as needed */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

@@ -1,5 +1,6 @@
-function fetchData() {
-    return fetch('info/data.json')
+// Function to load data from a given file path
+function fetchData(filePath) {
+    return fetch(filePath)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -11,7 +12,7 @@ function fetchData() {
 
 // Function to load lessons into the lessons list
 function loadLessons() {
-    fetchData().then(data => {
+    fetchData('info/lessons.json').then(data => {
         const lessonsList = document.getElementById('lessons-list');
         if (lessonsList) {
             lessonsList.innerHTML = ''; // Clear existing content
@@ -26,7 +27,7 @@ function loadLessons() {
 
 // Function to load problems into the problems list
 function loadProblems() {
-    fetchData().then(data => {
+    fetchData('info/problems.json').then(data => {
         const problemsList = document.getElementById('problems-list');
         if (problemsList) {
             problemsList.innerHTML = ''; // Clear existing content
@@ -41,7 +42,7 @@ function loadProblems() {
 
 // Function to show lesson details
 function showLesson(lessonId) {
-    fetchData().then(data => {
+    fetchData('info/lessons.json').then(data => {
         const lesson = data.lessons.find(lesson => lesson.id === lessonId);
         if (lesson) {
             document.getElementById('lesson-content').innerHTML = `
@@ -55,7 +56,7 @@ function showLesson(lessonId) {
 
 // Function to show problem details
 function showProblem(problemId) {
-    fetchData().then(data => {
+    fetchData('info/problems.json').then(data => {
         const problem = data.problems.find(problem => problem.id === problemId);
         if (problem) {
             document.getElementById('problem-content').innerHTML = `
@@ -68,7 +69,7 @@ function showProblem(problemId) {
 
 // Function to submit task answer
 function submitTaskAnswer() {
-    fetchData().then(data => {
+    fetchData('info/problems.json').then(data => {
         const problem = data.problems.find(problem => problem.id === 'problem1');
         if (problem) {
             const userAnswer = document.getElementById('task-answer').value;
