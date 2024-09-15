@@ -285,3 +285,78 @@ h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list
     background-color: #e0e7ef;
     margin-left: 10px; /* Adjust the value as needed */
 }
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lessons-list, .problems-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+.lesson-details, .problem-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+/* Media queries for phones */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .lessons-list, .problems-list, .lesson-details, .problem-details {
+        min-width: 100%;
+    }
+
+    .math-club-title {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+}
+
+/* Media queries for tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .lessons-list, .problems-list {
+        flex: 1;
+    }
+
+    .lesson-details, .problem-details {
+        flex: 2;
+    }
+
+    .math-club-title {
+        font-size: 2em;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 1em;
+    }
+}
