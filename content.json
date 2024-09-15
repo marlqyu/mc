@@ -1,3 +1,17 @@
 {
-  "googleClassroomCode": "Google Classroom Code: zxcqwe"
+  "googleClassroomCode": "Google Classroom Code: zxcqwe",
+  "lessons": [
+    {
+      "title": "Lesson 1: Introduction to Algebra",
+      "content": "This lesson covers the basics of algebra, including variables, equations, and functions."
+    },
+    {
+      "title": "Lesson 2: Geometry Basics",
+      "content": "This lesson introduces the fundamental concepts of geometry, including points, lines, and shapes."
+    },
+    {
+      "title": "Lesson 3: Trigonometry",
+      "content": "This lesson explores the principles of trigonometry, including sine, cosine, and tangent functions."
+    }
+  ]
 }
