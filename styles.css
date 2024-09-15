@@ -267,14 +267,14 @@ h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: grey;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .problem-input-window button:hover {
-    background-color: #45a049;
+    background-color: #9f9d9d;
 }
 .problems-list {
     background-color: #e0e7ef;
