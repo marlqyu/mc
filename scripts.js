@@ -84,3 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadLessons();
     loadProblems();
 });
+document.getElementById('submit-answer').addEventListener('click', function() {
+    const answer = document.getElementById('problem-answer').value;
+    if (answer.trim() === '') {
+        alert('Please enter an answer.');
+        return;
+    }
+    // Handle the answer submission logic here
+    console.log('Submitted answer:', answer);
+    alert('Your answer has been submitted.');
+    document.getElementById('problem-answer').value = ''; // Clear the textarea
+});

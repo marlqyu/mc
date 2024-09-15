@@ -229,3 +229,59 @@ h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list
     border-radius: 5px;
     margin-bottom: 10px;
 }
+.lessons-list {
+    background-color: #e0e7ef;
+    margin-right: 20px; /* Adjust the value as needed */
+}
+
+.lesson-details {
+    background-color: #e0e7ef;
+    margin-left: 20px; /* Adjust the value as needed */
+}
+.problem-input-window {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #e0e7ef;
+    margin-left: 20px; /* Adjust the value as needed */
+}
+.problem-input-window h3 {
+    font-family: 'ThemesFont', Arial, sans-serif;
+    color: black;
+}
+
+.problem-input-window textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'AllTextFont', Arial, sans-serif;
+    margin-bottom: 10px;
+    resize: none; /* Make textarea non-resizable */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.problem-input-window button {
+    font-family: 'LinksFont', Arial, sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.problem-input-window button:hover {
+    background-color: #45a049;
+}
+.problems-list {
+    background-color: #e0e7ef;
+    margin-right: 10px; /* Adjust the value as needed */
+}
+
+.problem-details {
+    background-color: #e0e7ef;
+    margin-left: 10px; /* Adjust the value as needed */
+}
