@@ -66,24 +66,8 @@ function submitTaskAnswer() {
     });
 }
 
-// Function to update featured content
-function updateFeaturedContent() {
-    fetchData().then(data => {
-        document.querySelector('.large-block:last-child p').innerText = data.featuredContent.events;
-    });
-}
-
-// Function to update Google Classroom code
-function updateGoogleClassroomCode() {
-    fetchData().then(data => {
-        document.querySelector('.small-block p').innerText = `Join us with the code: ${data.googleClassroom.code}`;
-    });
-}
-
 // Initialize the page when DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    updateFeaturedContent();
-    updateGoogleClassroomCode();
     loadLessons();
     loadProblems();
 });
