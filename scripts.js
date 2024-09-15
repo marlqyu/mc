@@ -9,6 +9,7 @@ function fetchData() {
 function loadLessons() {
     fetchData().then(data => {
         const lessonsList = document.getElementById('lessons-list');
+        lessonsList.innerHTML = ''; // Clear existing content
         data.lessons.forEach(lesson => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `<a href="#" onclick="showLesson('${lesson.id}')">${lesson.title}</a>`;
@@ -21,6 +22,7 @@ function loadLessons() {
 function loadProblems() {
     fetchData().then(data => {
         const problemsList = document.getElementById('problems-list');
+        problemsList.innerHTML = ''; // Clear existing content
         data.problems.forEach(problem => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `<a href="#" onclick="showProblem('${problem.id}')">${problem.problem}</a>`;
