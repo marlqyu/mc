@@ -37,7 +37,8 @@ function showLesson(lessonId) {
         const lesson = data.lessons.find(lesson => lesson.id === lessonId);
         document.getElementById('lesson-content').innerHTML = `
             <h3>${lesson.title}</h3>
-            <p>${lesson.content}</p>
+            <p>${lesson.description}</p>
+            <p>${lesson.objectives}</p>
         `;
     });
 }
@@ -48,9 +49,6 @@ function showProblem(problemId) {
         const problem = data.problems.find(problem => problem.id === problemId);
         document.getElementById('problem-content').innerHTML = `
             <h3>${problem.problem}</h3>
-            <p>${problem.details}</p>
-        `;
-        document.getElementById('task-content').innerHTML = `
             <p>${problem.task}</p>
         `;
     });
