@@ -3,39 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problems</title>
+    <title>Problems - Math Club</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Problems</h1>
-    </header>
-    <main>
-        <form id="problem-form">
-            <input type="text" id="title" placeholder="Title" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <textarea id="solution" placeholder="Solution" required></textarea>
-            <button type="submit">Add Problem</button>
-        </form>
-    </main>
-    <script>
-        document.getElementById('problem-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('title').value;
-            const description = document.getElementById('description').value;
-            const solution = document.getElementById('solution').value;
+    <link rel="icon" href="images/dcti.png" type="image/png">
 
-            fetch('http://localhost:3000/add-problem', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ title, description, solution })
-            })
-            .then(response => response.text())
-            .then(data => alert(data))
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
+<body>
+<header>
+    <img src="images/dcti.png" alt="Math Club Logo" class="logo">
+    <h1 class="math-club-title">Math Club</h1>
+</header>
+<nav class="red-hat-display-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="problems.html">Problems</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="container">
+        <aside class="problems-list">
+            <h2>Problems</h2>
+            <ul id="problems-list">
+            </ul>
+        </aside>
+        <section class="problem-details" id="problem-details">
+            <h3>Select a problem to view details</h3>
+            <div id="problem-content"></div>
+        </section>
+    </div>
+</main>
+<script src="fetch-problems.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>

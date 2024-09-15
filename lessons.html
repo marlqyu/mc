@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lessons</title>
+    <title>Lessons - Math Club</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/dcti.png" type="image/png">
 </head>
 <body>
-    <header>
-        <h1>Lessons</h1>
-    </header>
-    <main>
-        <form id="lesson-form">
-            <input type="text" id="title" placeholder="Title" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <textarea id="objectives" placeholder="Objectives" required></textarea>
-            <button type="submit">Add Lesson</button>
-        </form>
-    </main>
-    <script>
-        document.getElementById('lesson-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('title').value;
-            const description = document.getElementById('description').value;
-            const objectives = document.getElementById('objectives').value;
+<header>
+    <img src="images/dcti.png" alt="Math Club Logo" class="logo">
+    <h1 class="math-club-title">Math Club</h1>
+</header>
 
-            fetch('http://localhost:3000/add-lesson', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ title, description, objectives })
-            })
-            .then(response => response.text())
-            .then(data => alert(data))
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
+<nav class="red-hat-display-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="problems.html">Problems</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="container">
+        <aside class="lessons-list">
+            <h2>Lessons</h2>
+            <ul id="lessons-list">
+            </ul>
+        </aside>
+        <section class="lesson-details" id="lesson-details">
+            <h3>Select a lesson to view details</h3>
+            <div id="lesson-content"></div>
+        </section>
+    </div>
+</main>
+<script src="fetch-lessons.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
