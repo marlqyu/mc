@@ -2,29 +2,21 @@
 @font-face {
     font-family: 'TitleFont';
     src: url('fonts/title.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: 'LinksFont';
     src: url('fonts/links.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: 'ThemesFont';
     src: url('fonts/themes.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: 'AllTextFont';
     src: url('fonts/alltext.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 body {
@@ -35,8 +27,14 @@ body {
     padding: 0;
 }
 
-header {
+header, nav ul, .large-block, .small-block, .about-us-block, .problems-list, .problem-details, .lessons-list, .lesson-details, .google-classroom-code, .submit-button, .problem-task {
     background-color: #e0e7ef;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
     color: white;
     padding: 0.2%;
     text-align: center;
@@ -54,7 +52,6 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    background-color: #e0e7ef;
     overflow: hidden;
     margin: 0;
     display: flex;
@@ -112,7 +109,6 @@ main {
 
 .math-club-title {
     font-family: 'TitleFont', Arial, sans-serif;
-    font-weight: normal;
     letter-spacing: 0.1em;
     color: black;
 }
@@ -127,12 +123,6 @@ hr.b {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-}
-
-.large-block, .small-block {
-    background-color: #e0e7ef;
-    padding: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .large-block {
@@ -188,13 +178,47 @@ hr.b {
     cursor: pointer;
 }
 
-.about-us-block {
-    background-color: #e0e7ef;
-    padding: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list h2, .problem-details h3, .problem-task h3 {
+    font-family: 'ThemesFont', Arial, sans-serif;
+    color: black;
 }
 
-h2, h3, .about-us-block h2, .lessons-list h2, .lesson-details h3, .problems-list h2, .problem-details h3 {
-    font-family: 'ThemesFont', Arial, sans-serif;
-    font-weight: normal;
+.problem-task {
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
+@media (max-width: 800px) {
+    .problem-task, .zxc {
+        margin-left: 0;
+    }
+}
+
+.submit-button {
+    font-family: 'LinksFont', Arial, sans-serif;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #a6a6a6;
+    color: white;
+}
+
+.problem-task #task-content, .problem-task #task-answer, .problem-task #task-feedback {
+    font-family: 'AllTextFont', Arial, sans-serif;
+    color: #333;
+}
+.lessons-list, .problems-list, .lesson-details, .problem-details {
+    background-color: transparent; /* Remove background color */
 }

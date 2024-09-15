@@ -1,0 +1,48 @@
+{
+    "lessons": [
+        {
+            "id": "lesson1",
+            "title": "Lesson 1",
+            "description": "Introduction to Algebra",
+            "objectives": "Understand basic algebraic concepts."
+        },
+        {
+            "id": "lesson2",
+            "title": "Lesson 2",
+            "description": "Geometry Basics",
+            "objectives": "Learn about shapes and their properties."
+        },
+        {
+            "id": "lesson3",
+            "title": "Lesson 3",
+            "description": "test",
+            "objectives": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ipsum purus, molestie vitae felis ut, elementum elementum purus. Maecenas viverra nunc ligula, vel congue est sodales nec. Pellentesque imperdiet volutpat felis, sed pulvinar dolor tincidunt et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut ullamcorper erat non luctus faucibus. Curabitur volutpat tempor nisl finibus rhoncus. Aliquam ultrices velit non enim consequat, tempor ullamcorper ex varius. Praesent volutpat luctus risus ac finibus. Duis pretium tristique dignissim. Maecenas lacus diam, volutpat sed scelerisque eget, scelerisque in libero.\n\nQuisque eleifend nec sem vitae sollicitudin. Aenean pretium vulputate dolor. Suspendisse potenti. Quisque venenatis ligula ac mi consequat, a feugiat lectus mattis. Etiam vitae risus quis tellus tempor consectetur. Curabitur accumsan laoreet ultrices. Maecenas et neque felis. Mauris laoreet dui in lacus eleifend, eu sollicitudin sapien congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque feugiat, tellus iaculis pharetra congue, nisi purus sollicitudin libero, a pulvinar ex arcu vel diam. Donec quis dapibus eros. Pellentesque sit amet tortor faucibus, sodales orci id, lobortis ante. Integer sed quam justo. Pellentesque sit amet tellus quis justo semper euismod. Vestibulum finibus sit amet eros quis dapibus. Etiam tempus in erat ut posuere.\n\nEtiam fringilla fringilla sapien at tempus. Fusce interdum neque non sollicitudin consectetur. Curabitur sit amet ullamcorper mi. Nam accumsan, sem nec rutrum viverra, turpis purus tempor nisl, at hendrerit tortor dui et velit. Quisque non justo diam. Aliquam dictum tellus tortor, facilisis accumsan ipsum pulvinar sed. Donec lacinia felis ut ante consectetur porttitor eu consequat urna. Nullam ut neque risus. Praesent quis enim a tellus consequat tincidunt. Vestibulum eu leo eleifend, consectetur massa id, maximus purus. Nunc ultrices purus non convallis sodales. Aliquam a quam mattis, consectetur erat non, placerat arcu.\n\nMorbi accumsan volutpat nunc sed tempus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tortor tortor, laoreet quis urna non, euismod tristique augue. Integer vel posuere neque. Maecenas sit amet turpis eros. Fusce urna elit, blandit tristique lacus non, condimentum imperdiet tellus. Nulla nunc nulla, congue ut dapibus a, congue sed dolor. Fusce sit amet purus sit amet urna finibus varius ac vel ipsum. Quisque laoreet tincidunt augue, at consequat enim gravida vel. Nam fringilla posuere lectus, eget placerat nisl eleifend ac. Nam tempus tincidunt nunc, eget condimentum quam gravida a. Vestibulum sed tellus efficitur, convallis risus a, condimentum erat. Curabitur non rutrum nulla. Vivamus imperdiet ligula in dignissim suscipit. Curabitur id velit aliquet, lacinia purus eu, placerat ex. Curabitur pellentesque velit erat, nec egestas turpis tempor at.\n\nCurabitur dapibus, purus et tristique vulputate, tortor mi facilisis velit, sed tempor erat turpis vitae quam. Duis blandit purus eu faucibus tempor. Curabitur pharetra quis ex ac ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque bibendum mauris vitae metus viverra, in sodales tortor imperdiet. Vivamus congue nisi lacus, sit amet gravida lectus ultrices at. Sed hendrerit id diam vitae lacinia. Nam condimentum, velit consequat."
+        }
+    ],
+    "problems": [
+        {
+            "id": "problem1",
+            "problem": "Problem 1",
+            "answer": "4",
+            "task": "Solve the equation 2 + 2."
+        },
+        {
+            "id": "problem2",
+            "problem": "Problem 2",
+            "answer": "5",
+            "task": "Find the square root of 16."
+        },
+        {
+            "id": "problem3",
+            "problem": "Problem 3",
+            "answer": "2x",
+            "task": "Calculate the derivative of x^2."
+        }
+    ],
+    "featuredContent": {
+        "events": "Coming soon."
+    },
+    "googleClassroom": {
+        "code": "ZOV1488"
+    }
+}

@@ -1,44 +1,73 @@
-function showLesson(lessonId) {
-    const lessonDetails = {
-        lesson1: {
-            title: "Lesson 1",
-            description: "Introduction to Algebra",
-            objectives: "Understand basic algebraic concepts."
-        },
-        lesson2: {
-            title: "Lesson 2",
-            description: "Geometry Basics",
-            objectives: "Learn about shapes and their properties."
-        }
-    };
+async function fetchData() {
+    const response = await fetch('info/data.json');
+    const data = await response.json();
+    return data;
+}
 
-    const lesson = lessonDetails[lessonId];
-    document.getElementById('lesson-details').innerHTML = `
-        <h3>${lesson.title}</h3>
-        <p>${lesson.description}</p>
-        <p><strong>Objectives:</strong> ${lesson.objectives}</p>
-    `;
+function showLesson(lessonId) {
+    fetchData().then(data => {
+        const lesson = data.lessons.find(lesson => lesson.id === lessonId);
+        document.getElementById('lesson-details').innerHTML = `
+            <h3>${lesson.title}</h3>
+            <p>${lesson.description}</p>
+            <p><strong>Objectives:</strong> ${lesson.objectives}</p>
+        `;
+    });
 }
 
 function showProblem(problemId) {
-    const problemDetails = {
-        problem1: {
-            problem: "What is 2 + 2?",
-            answer: "4"
-        },
-        problem2: {
-            problem: "What is the square root of 16?",
-            answer: "4"
-        }
-    };
+    fetchData().then(data => {
+        const problem = data.problems.find(problem => problem.id === problemId);
+        document.getElementById('problem-details').innerHTML = `
+            <h3>${problem.problem}</h3>
+        `;
+        document.getElementById('task-content').innerHTML = `
+            <p>${problem.task}</p>
+        `;
+    });
+}
 
-    const problem = problemDetails[problemId];
-    document.getElementById('problem-details').innerHTML = `
-        <h3>${problem.problem}</h3>
-        <input type="text" id="answer" placeholder="Enter your answer">
-        <button onclick="checkAnswer('${problem.answer}')">Submit</button>
-        <p id="feedback"></p>
-    `;
+function submitTaskAnswer() {
+    fetchData().then(data => {
+        const problem = data.problems.find(problem => problem.id === 'problem1');
+        const userAnswer = document.getElementById('task-answer').value;
+        const feedback = userAnswer === problem.answer ? "Correct!" : "Incorrect, try again.";
+        document.getElementById('task-feedback').innerText = feedback;
+    });
+}
+
+function updateFeaturedContent() {
+    fetchData().then(data => {
+        document.querySelector('.large-block:last-child p').innerText = data.featuredContent.events;
+    });
+}
+
+function updateGoogleClassroomCode() {
+    fetchData().then(data => {
+        document.querySelector('.small-block p').innerText = `Join us with the code: ${data.googleClassroom.code}`;
+    });
+}
+
+function loadLessons() {
+    fetchData().then(data => {
+        const lessonsList = document.getElementById('lessons-list');
+        data.lessons.forEach(lesson => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<a href="#" onclick="showLesson('${lesson.id}')">${lesson.title}</a>`;
+            lessonsList.appendChild(listItem);
+        });
+    });
+}
+
+function loadProblems() {
+    fetchData().then(data => {
+        const problemsList = document.getElementById('problems-list');
+        data.problems.forEach(problem => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<a href="#" onclick="showProblem('${problem.id}')">${problem.problem}</a>`;
+            problemsList.appendChild(listItem);
+        });
+    });
 }
 
 function checkAnswer(correctAnswer) {
@@ -47,10 +76,9 @@ function checkAnswer(correctAnswer) {
     document.getElementById('feedback').innerText = feedback;
 }
 
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
+document.addEventListener('DOMContentLoaded', () => {
+    updateFeaturedContent();
+    updateGoogleClassroomCode();
+    loadLessons();
+    loadProblems();
+});
